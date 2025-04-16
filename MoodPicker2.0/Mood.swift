@@ -27,6 +27,9 @@ enum Mood: String, CaseIterable {
             return "😵‍💫"
         case .confused:
             return "😕"
+            
+        default:
+            return "😄"
         
         }
     }
