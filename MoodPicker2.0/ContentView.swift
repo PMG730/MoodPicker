@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct ContentView: View {
-    
+    @Binding var moodChosen: Mood
     var body: some View {
         
         HStack{
             TabView {
                 
-                HomeView()
+                HomeView(moodChosen: $moodChosen)
                    
                        .tabItem {
                            
@@ -38,5 +38,5 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView()
+//    ContentView($moodChosen)
 }

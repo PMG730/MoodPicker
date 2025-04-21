@@ -9,11 +9,10 @@ import SwiftUI
 
 struct HomeView: View {
 
-    
+    @Binding var moodChosen: Mood
 
     var body: some View {
        
-          
     NavigationStack {
         VStack {
             Text("Dashboard")
@@ -25,7 +24,7 @@ struct HomeView: View {
             
             Text("")
                 
-            NavigationLink(destination: MoodPickerView(moodChosen: <#Binding<Mood>#>)) {
+            NavigationLink(destination: MoodPickerView(moodChosen: $moodChosen)) {
                 Text("Select Your Mood")
                     .padding()
                         .background(Color.blue)

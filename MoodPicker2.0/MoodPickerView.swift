@@ -10,7 +10,7 @@ import SwiftUI
 import SwiftUI
 
 struct MoodPickerView: View {
-    @Binding<Mood> var moodChosen: Mood
+   @Binding var moodChosen: Mood
     @State var selectedMood: String?
     var body: some View {
         VStack{
@@ -82,6 +82,6 @@ struct MoodPickerView: View {
 }
 
 #Preview {
-    MoodPickerView(moodChosen: <#T##Binding<Mood>#>)
+//MoodPickerView(moodChosen: <#T##Binding<Mood>#>)
 }
 
