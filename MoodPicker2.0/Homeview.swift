@@ -37,8 +37,6 @@ struct HomeView: View {
             }
 
             
-            Text(moodChosen.rawValue)
-           Text(moodChosen.emoji)
 
         }
         .padding()
