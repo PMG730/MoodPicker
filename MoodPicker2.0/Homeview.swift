@@ -12,9 +12,11 @@ struct HomeView: View {
     @Binding var moodChosen: Mood
 
     var body: some View {
-       
+
+        
     NavigationStack {
         VStack {
+
             Text("Dashboard")
                     .font(.largeTitle)
                     .fontWeight(.bold)
@@ -33,7 +35,8 @@ struct HomeView: View {
             }
 
             
-            
+            Text(moodChosen.rawValue)
+           Text(moodChosen.emoji)
 
         }
         .padding()
