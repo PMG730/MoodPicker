@@ -1,84 +1,42 @@
-//
-//  MoodPickerView.swift
-//  MoodPicker2.0
-//
-//  Created by CLEMENS, ELI J. on 4/16/25.
-//
-
-import SwiftUI
-
 import SwiftUI
 
 struct MoodPickerView: View {
-   @Binding var moodChosen: Mood
+    @Binding var moodChosen: Mood
+    @State private var navigateToHome = false
+    
     var body: some View {
-        VStack{
-        
-            Text("Mood Picker App:\n Choose a mood")
-                .fontWeight(.bold)
-                .padding()
-            NavigationLink(destination: HomeView(moodChosen: $moodChosen)) {
-                
-                HStack{
-                    Text(Mood.happy.rawValue)
-                    Text(Mood.happy.emoji)
-                    onTapGesture{
-                        moodChosen = .happy
+        NavigationStack {
+            VStack(spacing: 20) {
+                Text("Mood Picker App:\nChoose a mood")
+                    .font(.title2)
+                    .fontWeight(.bold)
+                    .multilineTextAlignment(.center)
+                    .padding()
+
+                // Mood options
+                ForEach(Mood.allCases, id: \.self) { mood in
+                    Button(action: {
+                        moodChosen = mood
+                        navigateToHome = true
+                    }) {
+                        HStack {
+                            Text(mood.rawValue)
+                            Text(mood.emoji)
+                        }
+                        .padding()
+                        .frame(maxWidth: .infinity)
+                        .background(Color.blue.opacity(0.2))
+                        .cornerRadius(10)
                     }
                 }
-                
-                HStack{
-                    Text(Mood.sad.rawValue)
-                    Text(Mood.sad.emoji)
-                    onTapGesture{
-                        moodChosen = .sad
-                    }
-                }
-                HStack{
-                    Text(Mood.nervous.rawValue)
-                    Text(Mood.nervous.emoji)
-                    onTapGesture{
-                        moodChosen = .nervous
-                    }
-                }
-                HStack{
-                    HStack {
-                        Text(Mood.weird.rawValue)
-                        Text(Mood.weird.emoji)
-                    }
-                    .onTapGesture {
-                        moodChosen = .weird
-                    }
-                    
-                    
-                }
-                HStack{
-                    Text(Mood.confused.rawValue)
-                    Text(Mood.confused.emoji)
-                    onTapGesture{
-                        moodChosen = .confused
-                    }
-                    }
+
+                // NavigationLink triggered by state change
+                NavigationLink(destination: HomeView(moodChosen: $moodChosen),
+                               isActive: $navigateToHome) {
+                    EmptyView()
                 }
             }
-//            ForEach(Mood.allCases, id: \.self) {  mood in
-//                HStack{
-//                    Text(mood.rawValue)
-//                        .fontWeight(.bold)
-//                    Text(mood.emoji.rawValue)
-//                    Button(action: {
-//                        self.moodChosen = mood
-//                    }) {
-//                        Text("Pick")
-//                    }
-//                }
-//
-//            }
+            .padding()
         }
     }
-
-
-#Preview {
-//MoodPickerView(moodChosen: <#T##Binding<Mood>#>)
 }
-
