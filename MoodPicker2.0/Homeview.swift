@@ -18,11 +18,13 @@ struct HomeView: View {
             Text("Dashboard")
                     .font(.largeTitle)
                     .fontWeight(.bold)
-            Text("Today's Mood")
+            Text(moodChosen.rawValue)
 
                 .font(.largeTitle)
             
-            Text("")
+            Text(moodChosen.emoji)
+                .font(.largeTitle)
+                .fontWeight(.bold)
                 
             NavigationLink(destination: MoodPickerView(moodChosen: $moodChosen)) {
                 Text("Select Your Mood")
