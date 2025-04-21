@@ -1,3 +1,10 @@
+//
+//  Mood.swift
+//  Github
+//
+//  Created by CLEMENS, ELI on 4/16/25.
+//
+
 import SwiftUI
 
 struct MoodPickerView: View {
