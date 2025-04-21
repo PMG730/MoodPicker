@@ -24,9 +24,13 @@ struct HomeView: View {
 
                 .font(.largeTitle)
             
+            
+            
             Text(moodChosen.emoji)
-                .font(.largeTitle)
-                .fontWeight(.bold)
+                .font(.system(size: 100))
+                .frame(maxWidth: .infinity)
+                .multilineTextAlignment(.center)
+
                 
             NavigationLink(destination: MoodPickerView(moodChosen: $moodChosen)) {
                 Text("Select Your Mood")
