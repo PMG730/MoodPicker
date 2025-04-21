@@ -11,28 +11,16 @@ struct ContentView: View {
     @Binding var moodChosen: Mood
     var body: some View {
         
-        HStack{
-            TabView {
-                
-                HomeView(moodChosen: $moodChosen)
-                   
-                       .tabItem {
-                           
-                           Label("Home", systemImage: "person")
-                           
-                       }
+        TabView {
+            HomeView(moodChosen: $moodChosen)
+                .tabItem {
+                    Label("Dashboard", systemImage: "house.fill")
+                }
 
-                    
-//                Info()
-//                
-//                    .tabItem {
-//                        
-//                        Label("Info", systemImage: "info.circle")
-//                        
-//                    }
-//                
-            }
-            
+            Info()
+                .tabItem {
+                    Label("Mood Picker", systemImage: "info.circle")
+                }
         }
     }
 }
